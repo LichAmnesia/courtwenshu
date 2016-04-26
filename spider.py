@@ -23,7 +23,7 @@ sys.setdefaultencoding('utf8')
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from utils import get_configs
+import yaml
 from logger.mylogger import Logger
 
 log_main = Logger.get_logger(__file__)
@@ -41,6 +41,49 @@ class mongo_cli(object):
         self.proid = self.db.probid
 
 cli = mongo_cli()
+
+
+class contentSpider(object):
+    """docstring for contentSpider"""
+
+    def __init__(self):
+        # self.dir_root = os.path.dirname(os.path.abspath(__file__))
+        # self.settings = os.path.join(self.dir_root, 'setting.yaml')
+        with open('setting.yaml', 'r') as fp:
+            self.configs = yaml.load(fp)
+        self.headers_base = self.configs['HEADERS']['BASE']
+        self.url_homepage = self.configs['URL']['HOMEPAGE']
+        print self.url_homepage
+        self.timeout_query = self.configs['TIMEOUT']['QUERY']
+
+        self.offset = self.configs['OFFSET']
+        self.data = self.configs['FORM']
+        print self.data
+        self.spider = requests.Session()
+        self.content = None
+
+    def run(self):
+        try:
+            print self.data
+            with open('g.html', 'wb') as g:
+                resp = self.spider.get('http://wenshu.court.gov.cn/list/list/?sorttype=1', headers={
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36'
+                })
+                import IPython
+                IPython.embed()
+                print resp.history
+                g.write(resp.content)
+            self.content = self.spider.post(self.url_homepage,
+                                            headers=self.headers_base,
+                                            data=self.data,
+                                            timeout=self.timeout_query)
+        except Exception as e:
+            log_main.error('Failed to try to login. Error: {0}'.format(e))
+            sys.exit(-1)
+
+        f = open('f.html', 'wb')
+        f.write(self.content.content)
+        print self.content.request.headers
 
 
 class zhihu_lawspider(object):
@@ -225,5 +268,7 @@ class zhihu_lawspider(object):
             return False
 
 if __name__ == '__main__':
-    ZHspider = zhihu_lawspider()
-    ZHspider.run()
+    # ZHspider = zhihu_lawspider()
+    # ZHspider.run()
+    Law = contentSpider()
+    Law.run()

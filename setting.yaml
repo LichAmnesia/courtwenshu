@@ -1,5 +1,5 @@
 URL:
-  HOMEPAGE: http://www.zhihu.com
+  HOMEPAGE: http://wenshu.court.gov.cn/List/ListContent
   LOGIN: http://www.zhihu.com/login
   QUESTIONS: http://www.zhihu.com/log/questions
   QUESTION_PREFIX: http://www.zhihu.com
@@ -7,33 +7,10 @@ URL:
 
 HEADERS:
   BASE:
-    Accept:*/*
-Accept-Encoding:gzip, deflate
-Accept-Language:zh-CN,zh;q=0.8,en;q=0.6
-Connection:keep-alive
-Content-Length:78
-Content-Type:application/x-www-form-urlencoded; charset=UTF-8
-Cookie:ASP.NET_SessionId=kjc51mgufzcbhtjitr2weleh; yunsuo_session_verify=bbc3b91bb7d19fe077009bddfa39e6a0; wzwsconfirm=23f1ebe754a59b91bb9d2f324142c4bc; wzwstemplate=Mg==; ccpassport=ee51a84eba3084bf18b6bc58f4d51529; wzwschallenge=-1; yunsuo_session_verify=0e41ddf6acbcfb411d44bab4e8fcdc51
-Host:wenshu.court.gov.cn
-Origin:http://wenshu.court.gov.cn
-Referer:http://wenshu.court.gov.cn/list/list/?sorttype=1
-User-Agent:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36
-X-Requested-With:XMLHttpRequest
-Form Data
-view source
-view URL encoded
-
-    Accept: "*/*"
-    Accept-Encoding: gzip, deflate
-    Accept-Language: en-US,en;q=0.8
-    Cache-Control: no-cache
-    Connection: keep-alive
-    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
-    # Host: www.zhihu.com
-    # Origin: http://www.zhihu.com
-    Pragma: no-cache
-    # Referer: http://www.zhihu.com/
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36
+    Cookie: wzwsconfirm=74a03bb2351393cf3ed2ccdd88cdb8fb; wzwstemplate=Ng==; ccpassport=91bcc57b027bbe90fe8513ea028536fe; wzwschallenge=-1; yunsuo_session_verify=48a4448a9dd971e813e8f78140561de1; _gsref_2116842793=http://wenshu.court.gov.cn/list/list/?sorttype=1; _gscu_2116842793=6159251084c1hj21; _gscs_2116842793=61592510zjmx6s21|pv:2; _gscbrs_2116842793=1; yunsuo_session_verify=76964177b52ae5cdda330d873f1e998d
+    Origin: http://wenshu.court.gov.cn
+    Referer: http://wenshu.court.gov.cn/list/list/?sorttype=1
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36
     X-Requested-With: XMLHttpRequest
 
 AUTH:
@@ -50,3 +27,10 @@ PAYLOAD:
     _xsrf:
 
 OFFSET: 40
+
+FORM:
+  Param:
+  Index: 1
+  Page: 5
+  Order: 法院层级
+  Direction: asc
